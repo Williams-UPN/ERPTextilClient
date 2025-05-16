@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ERP Textil - Empresa Productora de Telas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <aside class="sidebar" style="display: none">
+        <div class="sidebar-header">
+          <div class="logo">
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1sYXllcnMiPjxwb2x5Z29uIHBvaW50cz0iMTIgMiAyIDcgMTIgMTIgMjIgNyAxMiAyIj48L3BvbHlnb24+PHBvbHlsaW5lIHBvaW50cz0iMiAxNyAxMiAyMiAyMiAxNyI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyIDEyIDEyIDE3IDIyIDEyIj48L3BvbHlsaW5lPjwvc3ZnPg=="
+              alt="Logo ERP Textil"
+            />
+            <span>ERP Textil</span>
+          </div>
+          <button id="sidebar-toggle" class="sidebar-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="user-info">
+          <div class="user-avatar">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <div class="user-details">
+            <h3 id="user-name">Usuario</h3>
+            <p id="user-role">Rol</p>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <ul id="menu-items"></ul>
+        </nav>
+        <div class="sidebar-footer">
+          <button id="logout-btn" class="btn-logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Cerrar Sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="main-header" style="display: none">
+          <div class="header-left">
+            <h1 id="page-title">Dashboard</h1>
+          </div>
+          <div class="header-right">
+            <div class="search-box">
+              <input type="text" placeholder="Buscar..." />
+              <i class="fas fa-search"></i>
+            </div>
+            <div class="notifications">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3</span>
+            </div>
+          </div>
+        </header>
+
+        <div id="page-container">
+          <div id="login-page" class="page active-page">
+            <div class="login-container animate__animated animate__fadeIn">
+              <div class="login-logo">
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDI4NWY0IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1sYXllcnMiPjxwb2x5Z29uIHBvaW50cz0iMTIgMiAyIDcgMTIgMTIgMjIgNyAxMiAyIj48L3BvbHlnb24+PHBvbHlsaW5lIHBvaW50cz0iMiAxNyAxMiAyMiAyMiAxNyI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyIDEyIDEyIDE3IDIyIDEyIj48L3BvbHlsaW5lPjwvc3ZnPg=="
+                  alt="Logo ERP Textil"
+                />
+                <h2>ERP Textil</h2>
+              </div>
+              <form id="login-form" class="login-form">
+                <div class="form-group">
+                  <label for="username"><i class="fas fa-user"></i></label>
+                  <input
+                    type="text"
+                    id="username"
+                    placeholder="Usuario"
+                    required
+                    autocomplete="username"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="password"><i class="fas fa-lock"></i></label>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Contraseña"
+                    required
+                    autocomplete="current-password"
+                  />
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn-primary">Ingresar</button>
+                </div>
+              </form>
+              <div class="login-footer">
+                <p>© 2025 ERP Textil - Todos los derechos reservados</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="dashboard-page" class="page">
+            <div class="dashboard-grid">
+              <div class="dashboard-card card-kpi">
+                <div class="card-header">
+                  <h3>Producción Total</h3>
+                </div>
+                <div class="card-body">
+                  <div class="kpi-value">
+                    <span class="value" id="db-kpi-prod-total">0</span>
+                    <span class="unit">m</span>
+                  </div>
+                  <div class="kpi-trend positive" id="db-kpi-prod-trend">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card card-kpi">
+                <div class="card-header">
+                  <h3>Rendimiento Prom.</h3>
+                </div>
+                <div class="card-body">
+                  <div class="kpi-value">
+                    <span class="value" id="db-kpi-rendimiento">0</span>
+                    <span class="unit">m/kg</span>
+                  </div>
+                  <div class="kpi-trend positive" id="db-kpi-rendimiento-trend">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card card-kpi">
+                <div class="card-header">
+                  <h3>Eficiencia Operativa</h3>
+                </div>
+                <div class="card-body">
+                  <div class="kpi-value">
+                    <span class="value" id="db-kpi-eficiencia">0</span>
+                    <span class="unit">%</span>
+                  </div>
+                  <div class="kpi-trend negative" id="db-kpi-eficiencia-trend">
+                    <i class="fas fa-arrow-down"></i>
+                    <span>0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card card-kpi">
+                <div class="card-header">
+                  <h3>Ventas del Mes</h3>
+                </div>
+                <div class="card-body">
+                  <div class="kpi-value">
+                    <span class="value" id="db-kpi-ventas">S/ 0</span>
+                  </div>
+                  <div class="kpi-trend positive" id="db-kpi-ventas-trend">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card card-chart">
+                <div class="card-header">
+                  <h3>Producción Mensual (Últimos 6 meses)</h3>
+                </div>
+                <div class="card-body">
+                  <canvas id="production-chart"></canvas>
+                </div>
+              </div>
+
+              <div class="dashboard-card card-chart">
+                <div class="card-header">
+                  <h3>Eficiencia por Máquina (Últimos 30 días)</h3>
+                </div>
+                <div class="card-body">
+                  <canvas id="efficiency-chart"></canvas>
+                </div>
+              </div>
+
+              <div class="dashboard-card card-table">
+                <div class="card-header">
+                  <h3>Inventario Crítico de Hilos</h3>
+                </div>
+                <div class="card-body">
+                  <table class="data-table" id="db-hilos-criticos-table">
+                    <thead>
+                      <tr>
+                        <th>Hilo</th>
+                        <th>Stock Actual</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="dashboard-card card-table">
+                <div class="card-header">
+                  <h3>Últimas Ventas</h3>
+                </div>
+                <div class="card-body">
+                  <table class="data-table" id="db-ultimas-ventas-table">
+                    <thead>
+                      <tr>
+                        <th>Cliente</th>
+                        <th>Monto</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="ingreso-manual-page" class="page">
+            <div class="page-header">
+              <div class="header-title">
+                <h2>Ingreso Manual de Producción</h2>
+                <p>
+                  Registre producciones que no fueron capturadas
+                  automáticamente.
+                </p>
+              </div>
+            </div>
+            <div class="content-card">
+              <form id="ingreso-manual-form" class="form-grid-ingreso-manual">
+                <div class="form-group">
+                  <label for="im-correlativo">Correlativo:</label>
+                  <input type="text" id="im-correlativo" name="correlativo" />
+                </div>
+                <div class="form-group">
+                  <label for="im-turno">Turno:</label>
+                  <select id="im-turno" name="turno" required></select>
+                </div>
+                <div class="form-group">
+                  <label for="im-maquina">Máquina (Telar):</label>
+                  <select id="im-maquina" name="maquina" required></select>
+                </div>
+                <div class="form-group">
+                  <label for="im-operario">Operario:</label>
+                  <select id="im-operario" name="operario" required></select>
+                </div>
+                <div class="form-group">
+                  <label for="im-tela">Tela:</label>
+                  <select id="im-tela" name="tela" required></select>
+                </div>
+                <div class="form-group">
+                  <label for="im-metros-producidos">Metros Producidos:</label>
+                  <input
+                    type="number"
+                    id="im-metros-producidos"
+                    name="metrosProducidos"
+                    step="0.01"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="im-peso-total">Peso Total (kg):</label>
+                  <input
+                    type="number"
+                    id="im-peso-total"
+                    name="pesoTotal"
+                    step="0.01"
+                    required
+                  />
+                </div>
+                <div class="form-group readonly">
+                  <label for="im-rendimiento">Rendimiento (m/kg):</label>
+                  <input
+                    type="text"
+                    id="im-rendimiento"
+                    name="rendimiento"
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="im-fecha-inicio">Fecha Inicio Producción:</label>
+                  <input
+                    type="datetime-local"
+                    id="im-fecha-inicio"
+                    name="fechaInicio"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="im-fecha-termino"
+                    >Fecha Término Producción:</label
+                  >
+                  <input
+                    type="datetime-local"
+                    id="im-fecha-termino"
+                    name="fechaTermino"
+                    required
+                  />
+                </div>
+                <div class="form-group readonly">
+                  <label for="im-tiempo-produccion">Tiempo Producción:</label>
+                  <input
+                    type="text"
+                    id="im-tiempo-produccion"
+                    name="tiempoProduccion"
+                    readonly
+                  />
+                </div>
+                <div class="form-group readonly">
+                  <label for="im-tiempo-parada"
+                    >Tiempo Parada (durante prod.):</label
+                  >
+                  <input
+                    type="text"
+                    id="im-tiempo-parada"
+                    name="tiempoParada"
+                    readonly
+                  />
+                </div>
+                <div
+                  class="form-group form-group-full-width"
+                  id="im-parametro-rendimiento-info"
+                  style="
+                    display: none;
+                    color: red;
+                    border: 1px solid red;
+                    padding: 10px;
+                    border-radius: var(--border-radius-sm);
+                  "
+                ></div>
+                <div class="form-actions form-group-full-width">
+                  <button type="submit" class="btn-primary">
+                    Guardar Ingreso Manual
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div id="hilos-inventario-page" class="page">
+            <div class="page-header">
+              <div class="header-title">
+                <h2>Inventario de Hilos</h2>
+                <p>Gestión y seguimiento del stock de hilos</p>
+              </div>
+              <div class="header-actions">
+                <button id="add-hilo-btn" class="btn-primary">
+                  <i class="fas fa-plus"></i>
+                  <span>Nuevo Registro de Hilo</span>
+                </button>
+                <button
+                  id="ajustar-hilo-inventario-general-btn"
+                  class="btn-secondary"
+                >
+                  <i class="fas fa-wrench"></i>
+                  <span>Ajustar Inventario Hilos</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="filter-bar">
+              <div class="filter-group">
+                <label>Tipo de Hilo:</label>
+                <select id="filter-tipo-hilo" class="filter-select">
+                  <option value="todos">Todos</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label>Calibre:</label>
+                <select id="filter-calibre-hilo" class="filter-select">
+                  <option value="todos">Todos</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label>Estado:</label>
+                <select id="filter-estado-hilo" class="filter-select">
+                  <option value="todos">Todos</option>
+                  <option value="normal">Normal</option>
+                  <option value="bajo">Bajo</option>
+                  <option value="critico">Crítico</option>
+                </select>
+              </div>
+              <div class="filter-group search-filter">
+                <input
+                  type="text"
+                  id="search-hilos"
+                  placeholder="Buscar por código o tipo..."
+                />
+              </div>
+            </div>
+
+            <div class="content-card">
+              <div class="table-container">
+                <table class="data-table" id="tintoreria-telas-table">
+                  <thead>
+                    <tr>
+                      <th>ID Envío</th>
+                      <th>ID Rollo</th>
+                      <th>Tela</th>
+                      <th>Proveedor Tintorería</th>
+                      <th>Color Destino</th>
+                      <th>Fecha Envío</th>
+                      <th>Fecha Retorno Estimada/Real</th>
+                      <th>Kg Enviados</th>
+                      <th>Metros Enviados</th>
+                      <th>Precio x Kg (S/)</th>
+                      <th>Costo Total (S/)</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tintoreria-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="produccion-page" class="page">
+            <div class="page-header">
+              <div class="header-title">
+                <h2>Supervisión de Producción</h2>
+                <p>Estado de telares y producciones activas.</p>
+              </div>
+              <div class="header-actions">
+                <button id="add-produccion-btn" class="btn-primary">
+                  <i class="fas fa-plus"></i>
+                  <span>Nueva Orden de Producción</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="production-grid">
+              <div class="machine-status">
+                <div class="section-header"><h3>Estado de Telares</h3></div>
+                <div class="machine-cards" id="produccion-machine-cards"></div>
+              </div>
+              <div class="active-productions">
+                <div class="section-header"><h3>Producciones Activas</h3></div>
+                <div class="table-container">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Telar</th>
+                        <th>Tela</th>
+                        <th>Operario</th>
+                        <th>Inicio</th>
+                        <th>Tiempo Activo</th>
+                        <th>Eficiencia Actual (%)</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="producciones-activas-table"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="performance-charts">
+                <div class="chart-card">
+                  <div class="card-header">
+                    <h3>Eficiencia por Operario (Turno Actual)</h3>
+                  </div>
+                  <div class="card-body">
+                    <canvas id="operarios-prod-chart"></canvas>
+                  </div>
+                </div>
+                <div class="chart-card">
+                  <div class="card-header">
+                    <h3>Producción por Tipo de Tela (Hoy)</h3>
+                  </div>
+                  <div class="card-body">
+                    <canvas id="telas-prod-chart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="telares-page" class="page">
+            <div class="page-header">
+              <div class="header-title">
+                <h2>Gestión de Telares</h2>
+                <p>Registro e inventario de telares.</p>
+              </div>
+              <div class="header-actions">
+                <button id="add-telar-btn" class="btn-primary">
+                  <i class="fas fa-plus"></i>
+                  <span>Nuevo Telar</span>
+                </button>
+              </div>
+            </div>
+            <div class="tabs-container">
+              <div class="tabs-header">
+                <button class="tab-btn active" data-tab="registro-telares">
+                  Registro de Telares
+                </button>
+                <button class="tab-btn" data-tab="inventario-telares">
+                  Estado Actual Telares
+                </button>
+              </div>
+              <div class="tab-content active" id="registro-telares-tab">
+                <div class="table-container">
+                  <table id="telares-registro-table" class="data-table">
+                    <thead>
+                      <tr>
+                        <th>ID Telar</th>
+                        <th>Nombre</th>
+                        <th>Marca</th>
+                        <th>Revoluciones</th>
+                        <th>Eficiencia Objetivo (%)</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-content" id="inventario-telares-tab">
+                <div class="table-container">
+                  <table id="telares-inventario-table" class="data-table">
+                    <thead>
+                      <tr>
+                        <th>ID Telar</th>
+                        <th>Nombre</th>
+                        <th>Estado Actual</th>
+                        <th>Tela en Producción</th>
+                        <th>Operario Asignado</th>
+                        <th>Último Mantenimiento</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="gestion-telas-page" class="page">
+            <div class="page-header">
+              <div class="header-title">
+                <h2>Gestión de Definición de Telas</h2>
+                <p>
+                  Registro y configuración de tipos de tela y sus composiciones.
+                </p>
+              </div>
+              <div class="header-actions">
+                <button id="add-gestion-tela-btn" class="btn-primary">
+                  <i class="fas fa-plus"></i>
+                  <span>Nueva Definición de Tela</span>
+                </button>
+              </div>
+            </div>
+            <div class="content-card">
+              <div class="table-container">
+                <table id="gestion-telas-table" class="data-table">
+                  <thead>
+                    <tr>
+                      <th>ID Tela</th>
+                      <th>Nombre</th>
+                      <th>Composición (Resumen)</th>
+                      <th>Pasadas/cm</th>
+                      <th>Rend. Mín (m/kg)</th>
+                      <th>Rend. Máx (m/kg)</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="telas-inventario-page" class="page">
+            <div class="page-header">
+              <div class="header-title">
+                <h2>Inventario de Telas Producidas</h2>
+                <p>Control de stock de telas terminadas.</p>
+              </div>
+              <div class="header-actions">
+                <button
+                  id="ajustar-tela-inventario-general-btn"
+                  class="btn-secondary"
+                >
+                  <i class="fas fa-wrench"></i>
+                  <span>Ajustar Inventario Telas</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="tabs-container">
+              <div class="tabs-header">
+                <button class="tab-btn active" data-tab="total-telas">
+                  Inventario Total
+                </button>
+                <button class="tab-btn" data-tab="detallado-telas">
+                  Inventario Detallado (Rollos)
+                </button>
+                <button class="tab-btn" data-tab="tintoreria-telas">
+                  En Tintorería
+                </button>
+              </div>
+              <div class="tab-content active" id="total-telas-tab">
+                <div class="table-container">
+                  <table class="data-table" id="inventario-total-telas-table">
+                    <thead>
+                      <tr>
+                        <th>Tela</th>
+                        <th>Rollos</th>
+                        <th>Total Metros</th>
+                        <th>Total Kilos</th>
+                        <th>Rendimiento Prom.</th>
+                        <th>Valor Estimado (S/)</th>
+                      </tr>
+                    </thead>
+                    <tbody id="inventario-total-table-body"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-content" id="detallado-telas-tab">
+                <div class="table-container">
+                  <table
+                    class="data-table"
+                    id="inventario-detallado-telas-table"
+                  >
+                    <thead>
+                      <tr>
+                        <th>ID Rollo</th>
+                        <th>Telar Origen</th>
+                        <th>Tela</th>
+                        <th>Metros</th>
+                        <th>Kilos</th>
+                        <th>Rendimiento</th>
+                        <th>Fecha Prod.</th>
+                        <th>Calidad</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="inventario-detallado-table-body"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-content" id="tintoreria-telas-tab">
+                <div class="table-container">
+                  <table class="data-table" id="tintoreria-telas-table">
+                    <thead>
+                      <tr>
+                        <th>ID Rollo</th>
+                        <th>Tela</th>
+                        <th>Color Destino</th>
+                        <th>Metros Enviados</th>
+                        <th>Tintorería</th>
+                        <th>Fecha Envío</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tintoreria-table-body"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="operarios-page" class="page">
+            <div class="page-header">
+              <div class="header-title">
+                <h2>Gestión de Operarios</h2>
+                <p>Registro y administración de personal operativo.</p>
+              </div>
+              <div class="header-actions">
+                <button id="add-operario-btn" class="btn-primary">
+                  <i class="fas fa-user-plus"></i>
+                  <span>Nuevo Operario</span>
+                </button>
+              </div>
+            </div>
+            <div class="content-card">
+              <div class="table-container">
+                <table id="operarios-table" class="data-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nombre Completo</th>
+                      <th>DNI</th>
+                      <th>Fecha Nacimiento</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="asignaciones-page" class="page">
+            <div class="page-header">
+              <div class="header-title">
+                <h2>Asignación de Telares a Operarios</h2>
+                <p>
+                  Gestionar asignaciones diarias. Estas se visualizan para el
+                  día seleccionado.
+                </p>
+              </div>
+              <div class="header-actions">
+                <label for="asignacion-fecha">Fecha de Asignación:</label>
+                <input
+                  type="date"
+                  id="asignacion-fecha"
+                  name="asignacion-fecha"
+                />
+              </div>
+            </div>
+            <div class="content-card">
+              <div id="asignaciones-container"></div>
+              <div class="form-actions" style="padding-top: var(--spacing-md)">
+                <button id="guardar-todas-asignaciones-btn" class="btn-primary">
+                  Guardar Todas las Asignaciones del Día
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="operario-control-page" class="page">
+            <div class="page-header">
+              <div class="header-title">
+                <h2 id="operario-control-page-title">Control de Operaciones</h2>
+                <p id="operario-info-header">Mis Telares Asignados</p>
+              </div>
+              <div class="header-actions">
+                <button
+                  id="refresh-operario-machines-btn"
+                  class="btn-secondary"
+                >
+                  <i class="fas fa-sync-alt"></i>
+                  <span>Actualizar</span>
+                </button>
+              </div>
+            </div>
+            <div class="machines-assigned">
+              <div class="section-header">
+                <h3>Mis Telares Asignados Hoy</h3>
+              </div>
+              <div
+                class="machine-cards-container"
+                id="operario-assigned-machines"
+              ></div>
+            </div>
+            <div class="stop-records">
+              <div class="section-header">
+                <h3>Mis Registros de Paradas de Hoy</h3>
+              </div>
+              <div class="table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Máquina</th>
+                      <th>Motivo Parada</th>
+                      <th>Inicio</th>
+                      <th>Fin</th>
+                      <th>Duración</th>
+                      <th>Comentario</th>
+                    </tr>
+                  </thead>
+                  <tbody id="operario-stop-records-table"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="revisador-page" class="page">
+            <div class="page-header">
+              <div class="header-title">
+                <h2>Control de Cortes</h2>
+                <p>Gestión de cortes de tela e ingreso a inventario.</p>
+              </div>
+              <div class="header-actions">
+                <button id="refresh-revisador-btn" class="btn-secondary">
+                  <i class="fas fa-sync-alt"></i>
+                  <span>Actualizar</span>
+                </button>
+              </div>
+            </div>
+            <div class="pending-cuts">
+              <div class="section-header">
+                <h3>Producciones Pendientes de Corte</h3>
+              </div>
+              <div class="table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Telar</th>
+                      <th>Tela</th>
+                      <th>Operario</th>
+                      <th>Inicio Producción</th>
+                      <th>Estado Prod.</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="revisador-pending-cuts-table"></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="recent-cuts">
+              <div class="section-header">
+                <h3>Cortes Recientes (Últimas 24h)</h3>
+              </div>
+              <div class="table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>ID Rollo</th>
+                      <th>Telar</th>
+                      <th>Tela</th>
+                      <th>Metros</th>
+                      <th>Kilos</th>
+                      <th>Rendimiento</th>
+                      <th>Fecha Corte</th>
+                      <th>Revisador</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="revisador-recent-cuts-table"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="ventas-page" class="page">
+            <div class="page-header">
+              <div class="header-title"><h2>Gestión de Ventas</h2></div>
+              <div class="header-actions">
+                <button id="nueva-venta-btn" class="btn-primary">
+                  <i class="fas fa-plus"></i> Nueva Venta
+                </button>
+              </div>
+            </div>
+            <div class="tabs-container">
+              <div class="tabs-header">
+                <button class="tab-btn active" data-tab="ventas-recientes">
+                  Ventas
+                </button>
+                <button class="tab-btn" data-tab="clientes-ventas">
+                  Clientes
+                </button>
+              </div>
+              <div class="tab-content active" id="ventas-recientes-tab">
+                <div class="table-container">
+                  <table class="data-table" id="ventas-recientes-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-content" id="clientes-ventas-tab">
+                <div
+                  class="header-actions"
+                  style="
+                    margin-bottom: var(--spacing-md);
+                    justify-content: flex-end;
+                  "
+                >
+                  <button id="nuevo-cliente-ventas-btn" class="btn-primary">
+                    <i class="fas fa-user-plus"></i> Nuevo Cliente
+                  </button>
+                </div>
+                <div class="table-container">
+                  <table class="data-table" id="clientes-ventas-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="finanzas-page" class="page">
+            <div class="page-header">
+              <div class="header-title"><h2>Gestión Financiera</h2></div>
+              <div class="header-actions">
+                <button id="nuevo-movimiento-btn" class="btn-primary">
+                  <i class="fas fa-plus"></i> Nuevo Movimiento
+                </button>
+              </div>
+            </div>
+            <div class="tabs-container">
+              <div class="tabs-header">
+                <button class="tab-btn active" data-tab="movimientos-fin">
+                  Movimientos
+                </button>
+                <button class="tab-btn" data-tab="proveedores-fin">
+                  Proveedores
+                </button>
+                <button class="tab-btn" data-tab="creditos-fin">
+                  Créditos
+                </button>
+              </div>
+              <div class="tab-content active" id="movimientos-fin-tab">
+                <div class="table-container">
+                  <table class="data-table" id="movimientos-financieros-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-content" id="proveedores-fin-tab">
+                <div
+                  class="header-actions"
+                  style="
+                    margin-bottom: var(--spacing-md);
+                    justify-content: flex-end;
+                  "
+                >
+                  <button id="nuevo-proveedor-fin-btn" class="btn-primary">
+                    <i class="fas fa-user-tie"></i> Nuevo Proveedor
+                  </button>
+                </div>
+                <div class="table-container">
+                  <table class="data-table" id="proveedores-financieros-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-content" id="creditos-fin-tab">
+                <div
+                  class="header-actions"
+                  style="
+                    margin-bottom: var(--spacing-md);
+                    justify-content: flex-end;
+                  "
+                >
+                  <button id="nuevo-credito-fin-btn" class="btn-primary">
+                    <i class="fas fa-handshake"></i> Nuevo Crédito
+                  </button>
+                </div>
+                <div class="table-container">
+                  <table class="data-table" id="creditos-financieros-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="kpis-page" class="page">
+            <div class="page-header">
+              <div class="header-title">
+                <h2>Indicadores Clave de Rendimiento (KPIs)</h2>
+              </div>
+              <div class="header-actions">
+                <label for="kpi-time-filter">Periodo:</label>
+                <select id="kpi-time-filter" class="filter-select">
+                  <option value="today">Hoy</option>
+                  <option value="last7days">Últimos 7 Días</option>
+                  <option value="last30days" selected>Últimos 30 Días</option>
+                </select>
+              </div>
+            </div>
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <h3>OEE</h3>
+                  <i
+                    class="fas fa-info-circle"
+                    title="Overall Equipment Effectiveness (Disponibilidad * Rendimiento * Calidad)"
+                  ></i>
+                </div>
+                <div class="kpi-value-main" id="kpi-oee-value">0%</div>
+                <div class="kpi-details">
+                  <span>Disp: <span id="kpi-oee-disponibilidad">0%</span></span>
+                  <span>Rend: <span id="kpi-oee-rendimiento">0%</span></span>
+                  <span>Cal: <span id="kpi-oee-calidad">0%</span></span>
+                </div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <h3>Eficiencia Promedio Prod.</h3>
+                  <i
+                    class="fas fa-info-circle"
+                    title="Eficiencia real vs teórica del tiempo operativo."
+                  ></i>
+                </div>
+                <div class="kpi-value-main" id="kpi-eficiencia-promedio-value">
+                  0%
+                </div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <h3>MTBF</h3>
+                  <i
+                    class="fas fa-info-circle"
+                    title="Tiempo Medio Entre Fallos (averías de telares)."
+                  ></i>
+                </div>
+                <div class="kpi-value-main" id="kpi-mtbf-value">0 hrs</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <h3>Paradas No Planificadas</h3>
+                  <i
+                    class="fas fa-info-circle"
+                    title="Tiempo total de paradas por averías u otras no programadas."
+                  ></i>
+                </div>
+                <div
+                  class="kpi-value-main"
+                  id="kpi-paradas-no-planificadas-value"
+                >
+                  0 hrs
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="analisis-page" class="page">
+            <div class="page-header">
+              <div class="header-title"><h2>Análisis de Datos</h2></div>
+              <div class="header-actions">
+                <label for="analisis-time-filter">Periodo:</label>
+                <select id="analisis-time-filter" class="filter-select">
+                  <option value="last30days" selected>Últimos 30 Días</option>
+                  <option value="last_quarter">Último Trimestre</option>
+                </select>
+              </div>
+            </div>
+            <div class="analysis-grid">
+              <div class="analysis-chart-card">
+                <div class="card-header">
+                  <h3>Rendimiento (m/kg) por Telar</h3>
+                </div>
+                <div class="card-body">
+                  <canvas id="analisis-rendimiento-maquina-chart"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p>Comparativa del rendimiento real (m/kg) de cada telar.</p>
+                </div>
+              </div>
+              <div class="analysis-chart-card">
+                <div class="card-header">
+                  <h3>Tiempo de Parada por Causa</h3>
+                </div>
+                <div class="card-body">
+                  <canvas id="analisis-tiempo-parada-chart"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p>Distribución del tiempo de parada según las causas.</p>
+                </div>
+              </div>
+              <div class="analysis-chart-card">
+                <div class="card-header">
+                  <h3>Evolución Eficiencia Producción</h3>
+                </div>
+                <div class="card-body">
+                  <canvas id="analisis-eficiencia-evolucion-chart"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p>Tendencia de la eficiencia general de producción.</p>
+                </div>
+              </div>
+              <div class="analysis-chart-card">
+                <div class="card-header">
+                  <h3>Proyección vs. Producción Real</h3>
+                </div>
+                <div class="card-body">
+                  <canvas id="analisis-proyeccion-real-chart"></canvas>
+                </div>
+                <div class="card-footer">
+                  <p>
+                    Comparativa entre producción proyectada y real (requiere
+                    datos de proyección).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="reportes-page" class="page">
+            <div class="page-header">
+              <div class="header-title"><h2>Reportes Detallados</h2></div>
+            </div>
+            <div class="report-controls">
+              <div class="report-type">
+                <label for="report-type-select">Tipo de Reporte:</label>
+                <select id="report-type-select">
+                  <option value="produccion_general">Producción General</option>
+                </select>
+              </div>
+              <div class="period-selector">
+                <label for="report-period-select">Período:</label>
+                <select id="report-period-select">
+                  <option value="mes" selected>Este Mes</option>
+                  <option value="personalizado">Personalizado</option>
+                </select>
+              </div>
+              <div
+                class="date-range"
+                id="report-date-range-custom"
+                style="display: none"
+              >
+                <label for="report-from-date">Desde:</label>
+                <input type="date" id="report-from-date" />
+                <label for="report-to-date">Hasta:</label>
+                <input type="date" id="report-to-date" />
+              </div>
+              <button id="generate-report-btn" class="btn-primary">
+                <i class="fas fa-file-alt"></i> Generar
+              </button>
+            </div>
+            <div
+              id="report-output-container"
+              class="content-card"
+              style="margin-top: var(--spacing-lg)"
+            >
+              <p>Seleccione los criterios y genere un reporte.</p>
+            </div>
+          </div>
+
+          <div id="configuracion-page" class="page">
+            <div class="page-header">
+              <div class="header-title"><h2>Configuración del Sistema</h2></div>
+            </div>
+            <div class="tabs-container">
+              <div class="tabs-header">
+                <button class="tab-btn active" data-tab="usuarios-config">
+                  Usuarios
+                </button>
+                <button class="tab-btn" data-tab="parametros-config">
+                  Parámetros Generales
+                </button>
+                <button class="tab-btn" data-tab="turnos-config">Turnos</button>
+                <button class="tab-btn" data-tab="motivos-parada-config">
+                  Motivos de Parada
+                </button>
+              </div>
+              <div class="tab-content active" id="usuarios-config-tab">
+                <div
+                  class="header-actions"
+                  style="
+                    margin-bottom: var(--spacing-md);
+                    justify-content: flex-end;
+                  "
+                >
+                  <button id="nuevo-usuario-config-btn" class="btn-primary">
+                    <i class="fas fa-user-plus"></i> Nuevo Usuario
+                  </button>
+                </div>
+                <div class="table-container">
+                  <table class="data-table" id="usuarios-config-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-content" id="parametros-config-tab">
+                <div class="config-form-container">
+                  <form id="parametros-generales-form" class="config-form">
+                    <div class="form-section">
+                      <h3 class="section-title">Alertas de Stock (Hilos)</h3>
+                      <div class="form-group">
+                        <label for="param-stock-critico-dias"
+                          >Días para Stock Crítico:</label
+                        ><input type="number" id="param-stock-critico-dias" />
+                      </div>
+                      <div class="form-group">
+                        <label for="param-stock-bajo-dias"
+                          >Días para Stock Bajo:</label
+                        ><input type="number" id="param-stock-bajo-dias" />
+                      </div>
+                    </div>
+                    <div class="form-actions">
+                      <button type="submit" class="btn-primary">
+                        Guardar Parámetros
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="tab-content" id="turnos-config-tab">
+                <div
+                  class="header-actions"
+                  style="
+                    margin-bottom: var(--spacing-md);
+                    justify-content: flex-end;
+                  "
+                >
+                  <button id="nuevo-turno-btn" class="btn-primary">
+                    <i class="fas fa-clock"></i> Nuevo Turno
+                  </button>
+                </div>
+                <div class="table-container">
+                  <table class="data-table" id="turnos-config-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-content" id="motivos-parada-config-tab">
+                <div
+                  class="header-actions"
+                  style="
+                    margin-bottom: var(--spacing-md);
+                    justify-content: flex-end;
+                  "
+                >
+                  <button id="nuevo-motivo-parada-btn" class="btn-primary">
+                    <i class="fas fa-traffic-light"></i> Nuevo Motivo
+                  </button>
+                </div>
+                <div class="table-container">
+                  <table class="data-table" id="motivos-parada-config-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="modal-crud" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 id="modal-crud-title"></h3>
+                <button class="close-modal">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="modal-crud-form" class="form-grid"></form>
+                <div
+                  id="modal-tela-composicion-section"
+                  style="display: none; margin-top: var(--spacing-md)"
+                >
+                  <h4>Composición de Hilos</h4>
+                  <div id="tela-composicion-items-container"></div>
+                  <button
+                    type="button"
+                    id="add-tela-composicion-item-btn"
+                    class="btn-secondary"
+                    style="margin-top: var(--spacing-sm)"
+                  >
+                    <i class="fas fa-plus"></i> Agregar Hilo
+                  </button>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn-secondary close-modal-btn">
+                  Cancelar</button
+                ><button
+                  type="submit"
+                  form="modal-crud-form"
+                  class="btn-primary"
+                  id="modal-crud-save-btn"
+                >
+                  Guardar
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="modal-ajuste-inventario" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 id="modal-ajuste-title">Ajustar Inventario</h3>
+                <button class="close-modal">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="ajuste-inventario-form">
+                  <div class="form-group">
+                    <label for="ajuste-item-nombre">Ítem:</label
+                    ><input
+                      type="text"
+                      id="ajuste-item-nombre"
+                      readonly
+                    /><input type="hidden" id="ajuste-item-id" /><input
+                      type="hidden"
+                      id="ajuste-item-tipo"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="ajuste-stock-actual">Stock Actual:</label
+                    ><input type="text" id="ajuste-stock-actual" readonly />
+                  </div>
+                  <div class="form-group">
+                    <label for="ajuste-nuevo-stock">Nuevo Stock Físico:</label
+                    ><input
+                      type="number"
+                      id="ajuste-nuevo-stock"
+                      step="0.01"
+                      required
+                    />
+                  </div>
+                  <div class="form-group readonly">
+                    <label for="ajuste-diferencia">Diferencia:</label
+                    ><input type="text" id="ajuste-diferencia" readonly />
+                  </div>
+                  <div class="form-group">
+                    <label for="ajuste-motivo">Motivo del Ajuste:</label
+                    ><textarea id="ajuste-motivo" rows="3" required></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-secondary close-modal-btn">Cancelar</button
+                ><button class="btn-primary" id="save-ajuste-inventario-btn">
+                  Guardar Ajuste
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="modal-nueva-produccion" class="modal">
+            <div class="modal-content modal-lg">
+              <div class="modal-header">
+                <h3>Iniciar Nueva Producción</h3>
+                <button class="close-modal">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="nueva-produccion-form" class="form-grid">
+                  <div class="form-group">
+                    <label for="np-maquina">Telar:</label
+                    ><select id="np-maquina" required></select>
+                  </div>
+                  <div class="form-group">
+                    <label for="np-tela">Tela a Producir:</label
+                    ><select id="np-tela" required></select>
+                  </div>
+                  <div class="form-group">
+                    <label for="np-operario">Operario Asignado:</label
+                    ><select id="np-operario" required></select>
+                  </div>
+                  <div class="form-group">
+                    <label for="np-turno">Turno:</label
+                    ><select id="np-turno" required></select>
+                  </div>
+                  <div
+                    class="form-group form-group-full-width readonly"
+                    id="np-composicion-info"
+                    style="
+                      background-color: #f0f0f0;
+                      padding: 10px;
+                      border-radius: var(--border-radius-sm);
+                    "
+                  >
+                    <h4>Composición:</h4>
+                    <ul id="np-tela-composicion-list"></ul>
+                    <p id="np-hilos-check-result"></p>
+                  </div>
+                  <div class="form-group">
+                    <label for="np-fecha-inicio">Fecha Inicio:</label
+                    ><input
+                      type="datetime-local"
+                      id="np-fecha-inicio"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="np-metros-estimados"
+                      >Metros Estimados (Opc):</label
+                    ><input type="number" id="np-metros-estimados" step="1" />
+                  </div>
+                  <div class="form-group form-group-full-width">
+                    <label for="np-observaciones">Observaciones:</label
+                    ><textarea id="np-observaciones" rows="2"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-secondary close-modal-btn">Cancelar</button
+                ><button class="btn-primary" id="save-nueva-produccion-btn">
+                  Iniciar Producción
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="modal-revisador-corte" class="modal">
+            <div class="modal-content modal-lg">
+              <div class="modal-header">
+                <h3>Registrar Corte de Tela</h3>
+                <button class="close-modal">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div
+                  class="production-info"
+                  id="corte-info-produccion"
+                  style="margin-bottom: var(--spacing-lg)"
+                ></div>
+                <form id="revisador-corte-form" class="form-grid">
+                  <input type="hidden" id="corte-produccion-id" />
+                  <div class="form-group">
+                    <label for="corte-rollo-id">ID Rollo:</label
+                    ><input type="text" id="corte-rollo-id" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="corte-metros-reales">Metros Reales:</label
+                    ><input
+                      type="number"
+                      id="corte-metros-reales"
+                      step="0.01"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="corte-kilos-reales">Kilos Reales:</label
+                    ><input
+                      type="number"
+                      id="corte-kilos-reales"
+                      step="0.01"
+                      required
+                    />
+                  </div>
+                  <div class="form-group readonly">
+                    <label for="corte-rendimiento-real"
+                      >Rendimiento Real (m/kg):</label
+                    ><input type="text" id="corte-rendimiento-real" readonly />
+                  </div>
+                  <div class="form-group">
+                    <label for="corte-calidad">Calidad Rollo:</label
+                    ><select id="corte-calidad" required>
+                      <option value="A">A (Primera)</option>
+                      <option value="B">B (Segunda)</option>
+                      <option value="C">C (Fallada)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="corte-revisador">Revisador:</label
+                    ><input type="text" id="corte-revisador" readonly />
+                  </div>
+                  <div class="form-group form-group-full-width">
+                    <label for="corte-observaciones">Observaciones:</label
+                    ><textarea id="corte-observaciones" rows="2"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-secondary close-modal-btn">Cancelar</button
+                ><button class="btn-primary" id="save-revisador-corte-btn">
+                  Registrar Corte
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="modal-operario-parada" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 id="operario-parada-title">Registrar Parada</h3>
+                <button class="close-modal">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="operario-parada-form">
+                  <input type="hidden" id="parada-machine-id-operario" />
+                  <div class="form-group">
+                    <label for="parada-tipo-operario">Motivo Parada:</label
+                    ><select id="parada-tipo-operario" required></select>
+                  </div>
+                  <div
+                    class="form-group"
+                    id="parada-otro-detalle-operario-group"
+                    style="display: none"
+                  >
+                    <label for="parada-otro-detalle-operario"
+                      >Especifique "Otro":</label
+                    ><input type="text" id="parada-otro-detalle-operario" />
+                  </div>
+                  <div class="form-group">
+                    <label for="parada-comentario-operario">Comentario:</label
+                    ><textarea
+                      id="parada-comentario-operario"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-secondary close-modal-btn">Cancelar</button
+                ><button class="btn-primary" id="save-operario-parada-btn">
+                  Registrar Parada
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="modal-operario-cambiar-tela" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 id="operario-cambiar-tela-title">Cambiar Tela</h3>
+                <button class="close-modal">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="operario-cambiar-tela-form">
+                  <input type="hidden" id="cambiar-tela-machine-id-operario" />
+                  <p>
+                    <strong>Tela Actual:</strong>
+                    <span id="cambiar-tela-actual-operario"></span>
+                  </p>
+                  <p>
+                    Se registrará el fin de la producción actual y el inicio de
+                    la nueva.
+                  </p>
+                  <div class="form-group">
+                    <label for="cambiar-tela-nueva-operario">Nueva Tela:</label
+                    ><select id="cambiar-tela-nueva-operario" required></select>
+                  </div>
+                  <div
+                    class="form-group form-group-full-width readonly"
+                    id="cambiar-tela-composicion-info-operario"
+                  >
+                    <h4>Composición Nueva Tela:</h4>
+                    <ul id="cambiar-tela-composicion-list-operario"></ul>
+                    <p id="cambiar-tela-hilos-check-result-operario"></p>
+                  </div>
+                  <div class="form-group">
+                    <label for="cambiar-tela-comentario-operario"
+                      >Comentario:</label
+                    ><textarea
+                      id="cambiar-tela-comentario-operario"
+                      rows="3"
+                      required
+                    ></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button class="btn-secondary close-modal-btn">Cancelar</button
+                ><button
+                  class="btn-primary"
+                  id="save-operario-cambiar-tela-btn"
+                >
+                  Confirmar Cambio
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="toast-notification" class="toast-notification">
+            <div class="toast-icon"><i class="fas fa-check-circle"></i></div>
+            <div class="toast-content">
+              <h4 class="toast-title">Éxito</h4>
+              <p class="toast-message">Operación realizada.</p>
+            </div>
+            <button class="toast-close"><i class="fas fa-times"></i></button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="app.js"></script>
+    <script src="js/api-integration.js"></script>
+  </body>
+</html>
